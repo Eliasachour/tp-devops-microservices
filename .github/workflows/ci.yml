@@ -49,3 +49,33 @@ jobs:
         run: |
           cd gateway-service
           mvn clean install
+
+      - name: Build Docker image discovery-service
+        run: |
+          cd discovery-service
+          docker build -t discovery-service .
+
+      - name: Build Docker image config-service
+        run: |
+          cd config-service
+          docker build -t config-service .
+
+      - name: Build Docker image catalogue-service
+        run: |
+          cd catalogue-service
+          docker build -t catalogue-service .
+
+      - name: Build Docker image commande-service
+        run: |
+          cd commande-service
+          docker build -t commande-service .
+
+      - name: Build Docker image paiement-service
+        run: |
+          cd paiement-service
+          docker build -t paiement-service .
+
+      - name: Build Docker image gateway-service
+        run: |
+          cd gateway-service
+          docker build -t gateway-service .
