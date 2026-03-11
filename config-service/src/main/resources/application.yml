@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      enabled: false
+      import-check:
+        enabled: false
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://host.docker.internal:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
