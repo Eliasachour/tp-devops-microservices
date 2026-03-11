@@ -1,0 +1,29 @@
+name: Microservices CI
+on:
+push:
+branches: [ main ]
+pull_request:
+branches: [ main ]
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- name: Checkout repository
+uses: actions/checkout@v4
+- name: Setup Java 21
+uses: actions/setup-java@v4
+with:
+distribution: 'temurin'
+java-version: '17'
+- name: Build Product Service
+run: |
+cd product-service
+mvn clean install
+- name: Build Order Service
+run: |
+cd order-service
+mvn clean install
+- name: Build User Service
+run: |
+cd user-service
+mvn clean install
