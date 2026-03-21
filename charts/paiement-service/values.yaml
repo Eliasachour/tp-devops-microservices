@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: eliascmoi0192837465/paiement-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30005
+
+env:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-paiement-service:5432/service2db"
+  SPRING_DATASOURCE_USERNAME: "service2user"
+  SPRING_DATASOURCE_PASSWORD: "service2pass"

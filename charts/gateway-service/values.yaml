@@ -1,0 +1,15 @@
+replicaCount: 1
+
+image:
+  repository: eliascmoi0192837465/gateway-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30006
+
+env:
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://discovery-service:8761/eureka"
+  SPRING_CONFIG_IMPORT: "optional:configserver:http://config-service:8888"

@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: eliascmoi0192837465/catalogue-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30003
+
+env:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-catalogue-service:5432/service1db"
+  SPRING_DATASOURCE_USERNAME: "service1user"
+  SPRING_DATASOURCE_PASSWORD: "service1pass"

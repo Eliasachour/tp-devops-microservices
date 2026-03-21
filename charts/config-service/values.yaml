@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: eliascmoi0192837465/config-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8888
+  nodePort: 30002
+
+env:
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://discovery-service:8761/eureka"

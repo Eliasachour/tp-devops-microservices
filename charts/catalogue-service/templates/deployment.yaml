@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue-service
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: catalogue-service
+  template:
+    metadata:
+      labels:
+        app: catalogue-service
+    spec:
+      containers:
+        - name: catalogue-service
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "{{ .Values.env.SPRING_DATASOURCE_URL }}"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "{{ .Values.env.SPRING_DATASOURCE_USERNAME }}"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "{{ .Values.env.SPRING_DATASOURCE_PASSWORD }}"

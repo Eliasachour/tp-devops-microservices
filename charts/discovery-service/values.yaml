@@ -1,0 +1,11 @@
+replicaCount: 1
+
+image:
+  repository: eliascmoi0192837465/discovery-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: NodePort
+  port: 8761
+  nodePort: 30001
